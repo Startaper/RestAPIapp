@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <title>Задачи</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/r_menu.css">
 </head>
 <body>
 <div class="css111">
     <div id="indent">
-        <div id="company_name">${companyFullName}</div>
+        <div id="company_name" th:text="${companyName}"></div>
         <ul class="css112 MuiList-padding MuiList-root">
             <a aria-current="page" class="css133" href="/home">
                 <div class="css134">
