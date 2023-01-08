@@ -8,10 +8,10 @@
 <body>
     <div class="background_image">
         <div class="pde">
-            <form class="flp" method="post">
+            <form class="flp" th:method="POST" th:object="${user}">
                 <h2>Авторизация в системе</h2>
-                <input class="inp" name="username" placeholder="Логин" type="text">
-                <input class="inp" name="password" placeholder="Пароль" type="password">
+                <input class="inp" th:field="*{username}" placeholder="Логин" type="text">
+                <input class="inp" th:field="*{password}" placeholder="Пароль" type="password">
                 <input class="btn_login" value="Войти" type="submit">
             </form>
         </div>

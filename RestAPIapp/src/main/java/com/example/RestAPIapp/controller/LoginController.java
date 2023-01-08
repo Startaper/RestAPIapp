@@ -3,14 +3,14 @@ package com.example.RestAPIapp.controller;
 import com.example.RestAPIapp.entity.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LoginController {
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("user", new UserEntity());
         return "login";
     }
 
@@ -21,10 +21,8 @@ public class LoginController {
 
     @PostMapping("/login")
     public String auth(Model model) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(String.valueOf(model.getAttribute("username")));
-        userEntity.setPassword(String.valueOf(model.getAttribute("password")));
-        System.out.println("Username: " + userEntity.getUsername() + "\nPassword: " + userEntity.getPassword());
+        UserEntity user = (UserEntity) model.getAttribute("user");
+        System.out.println("Username: " + user.getUsername() + ", password: " + user.getPassword());
         return "redirect:/home";
     }
 
